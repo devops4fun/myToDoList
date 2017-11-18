@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript and the DOM - Simple ToDo List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Shadows+Into+Light" rel="stylesheet">
+        <style>
+      body {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 20px;
+      }
+
+      button, input{
+        font-family: 'Poiret One', cursive;
+      }
+      li {
+        list-style-type:square;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1 id="myHeading">JavaScript and the DOM - Simple ToDo List</h1>
+    <p>Making a web page interactive</p>
+    <button id="toggleList" class="hideButton">Hide ToDo List</button>    
+    <div class='list'>
+    <p class="description">My <strong><em>Things</em></strong> ToDo:</p>
+    <input type="text" class="description" placeholder="Enter description">
+    <button class="description">Rename the ToDo List</button>
+
+    <ul id='mylist'>
+      <li>code...</li>
+      <li>build...</li>
+      <li>deploy...</li>
+      <li>find more work!</li>
+    </ul>
+      
+    <input type="text" class="addItemInput" placeholder="Enter New Item">
+    <button class="addItemButton">Add Item</button>
+    <p class="addItemButtonWarning"><em>Oops! No Value detected. Please enter a value to add</em></p>
+      <button class="removeItemButton">Remove Last Item</button>
+      </div>
+    <script src="js/app.js"></script>
+    <!--script src="temp.js"></script-->
+  </body>
+</html>
