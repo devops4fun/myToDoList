@@ -3,29 +3,35 @@ const listDiv = document.querySelector('.list');
 const descriptionInput = document.querySelector('input.description');
 const descriptionP = document.querySelector('p.description');
 const descriptionButton = document.querySelector('button.description');
+const listUl = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
-const removeItemButton = document.querySelector('button.removeItemButton');
 const addItemButtonWarning = document.querySelector('p.addItemButtonWarning');
 const descriptionButtonWarning = document.querySelector('p.descriptionButtonWarning');
 
-
- 
-      listDiv.addEventListener('mouseover', (event) => {   
-          if (event.target.tagName == 'LI'){
-          event.target.textContent =  event.target.textContent.toUpperCase();
-          event.target.style.color = "#768da3";
-          event.target.style.textDecoration = "underline";
+       listUl.addEventListener('click', (event) => {   
+          if (event.target.tagName == 'BUTTON'){
+            let li = event.target.parentNode;
+            let ul = li.parentNode;
+            ul.removeChild(li);
         }
       });
 
-      listDiv.addEventListener('mouseout', (event) => {   
-          if (event.target.tagName == 'LI'){
-          event.target.textContent = event.target.textContent.toLowerCase();
-          event.target.style.color = "#508abc";
-          event.target.style.textDecoration = "none";
-        }
-      });
+      // listDiv.addEventListener('mouseover', (event) => {   
+      //     if (event.target.tagName == 'LI'){
+      //     event.target.textContent =  event.target.textContent.toUpperCase();
+      //     event.target.style.color = "#768da3";
+      //     event.target.style.textDecoration = "underline";
+      //   }
+      // });
+
+      // listDiv.addEventListener('mouseout', (event) => {   
+      //     if (event.target.tagName == 'LI'){
+      //     event.target.textContent = event.target.textContent.toLowerCase();
+      //     event.target.style.color = "#508abc";
+      //     event.target.style.textDecoration = "none";
+      //   }
+      // });
 
 //hide the add item warning button
 addItemButtonWarning.style.display = 'none';
@@ -67,15 +73,6 @@ addItemButton.addEventListener('click', () => {
     addItemButtonWarning.style.display = 'block';
       }
                                });
-
-removeItemButton.addEventListener('click', () => {
-                               {
-                               let ul = document.getElementsByTagName('ul')[0];
-                               let li = document.querySelector('li:last-child');
-                               ul.removeChild(li);
-                                }
-});
-
 
 
 
