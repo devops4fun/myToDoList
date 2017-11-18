@@ -7,11 +7,13 @@ const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 const addItemButtonWarning = document.querySelector('p.addItemButtonWarning');
+const descriptionButtonWarning = document.querySelector('p.descriptionButtonWarning');
 const mouseEnter = document.getElementById('mylist');
 const mouseOut = document.getElementById('mylist');
 
 //hide the add item warning button
 addItemButtonWarning.style.display = 'none';
+descriptionButtonWarning.style.display = 'none';
 
 toggleList.addEventListener('click', () =>{
             if(listDiv.style.display == 'none') {
@@ -24,9 +26,15 @@ toggleList.addEventListener('click', () =>{
                     }
                             });
 descriptionButton.addEventListener('click', () => {
-                        descriptionP.innerHTML = descriptionInput.value + ':'
-                                   descriptionInput.value = '';
-                                   
+                        if(!(descriptionInput.value == '' )){
+                                  descriptionButtonWarning.style.display = 'none';
+                                  descriptionP.innerHTML = descriptionInput.value + ':'
+                                  descriptionInput.value = '';
+                        }else{
+                              descriptionButtonWarning.style.color = 'Red';
+                              descriptionButtonWarning.style.display = 'block';
+
+                        }          
                                    });
 
 addItemButton.addEventListener('click', () => {
