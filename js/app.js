@@ -8,8 +8,24 @@ const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 const addItemButtonWarning = document.querySelector('p.addItemButtonWarning');
 const descriptionButtonWarning = document.querySelector('p.descriptionButtonWarning');
-const mouseEnter = document.getElementById('mylist');
-const mouseOut = document.getElementById('mylist');
+
+
+ 
+      listDiv.addEventListener('mouseover', (event) => {   
+          if (event.target.tagName == 'LI'){
+          event.target.textContent =  event.target.textContent.toUpperCase();
+          event.target.style.color = "#768da3";
+          event.target.style.textDecoration = "underline";
+        }
+      });
+
+      listDiv.addEventListener('mouseout', (event) => {   
+          if (event.target.tagName == 'LI'){
+          event.target.textContent = event.target.textContent.toLowerCase();
+          event.target.style.color = "#508abc";
+          event.target.style.textDecoration = "none";
+        }
+      });
 
 //hide the add item warning button
 addItemButtonWarning.style.display = 'none';
@@ -60,13 +76,7 @@ removeItemButton.addEventListener('click', () => {
                                 }
 });
 
-  mouseEnter.addEventListener("mouseenter", ( event ) => {   
-    // highlight the mouseenter target
-      event.target.style.color = "#508abc";
-      event.target.style.textDecoration = "underline";
-  });
 
-  mouseOut.addEventListener("mouseout", ( event ) => {
-      event.target.style.color = "#484848";
-      event.target.style.textDecoration = "none";
-});
+
+
+
