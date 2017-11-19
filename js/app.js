@@ -8,6 +8,35 @@ const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const addItemButtonWarning = document.querySelector('p.addItemButtonWarning');
 const descriptionButtonWarning = document.querySelector('p.descriptionButtonWarning');
+const lis = listUl.children;
+const firstchilditem = listUl.firstElementChild;
+const lastchilditem = listUl.lastElementChild;
+
+firstchilditem.style.backgroundColor = 'lightgreen';
+lastchilditem.style.backgroundColor = 'lightskyblue';
+
+let attachListItemButtons = (li) => {
+  let up = document.createElement('button');
+  up.className = 'up';
+  up.textContent = 'Up';
+  li.appendChild(up);
+
+  let down = document.createElement('button');
+  down.className = 'down';
+  down.textContent = 'Down';
+  li.appendChild(down);
+
+  let remove = document.createElement('button');
+  remove.className = 'remove';
+  remove.textContent = 'Remove';
+  li.appendChild(remove);
+}
+
+for (let i = 0; i < lis.length; i += 1){
+
+  attachListItemButtons(lis[i]);
+
+}
 
        listUl.addEventListener('click', (event) => {   
           if (event.target.tagName == 'BUTTON'){
@@ -28,9 +57,10 @@ const descriptionButtonWarning = document.querySelector('p.descriptionButtonWarn
           }
             if(event.target.className == 'down'){
             let li = event.target.parentNode;
+            let nextLi = li.nextElementSibling;
             let ul = li.parentNode;
-            if(li.nextElementSibling){
-            ul.insertBefore(li.nextElementSibling, li);
+            if(nextLi){
+            ul.insertBefore(nextLi, li);
 
               }
           } 
@@ -86,6 +116,7 @@ addItemButton.addEventListener('click', () => {
                                let ul = document.getElementsByTagName('ul')[0];
                                let li = document.createElement('li');
                                li.textContent = addItemInput.value;
+                               attachListItemButtons(li);
                                ul.appendChild(li);
                                addItemInput.value = '';
 }else {
